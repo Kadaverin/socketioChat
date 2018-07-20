@@ -5,6 +5,11 @@
     padding: 0;
 }
 
+.chat-container
+{
+    display: none;
+}
+
 .panel-heading{
     background-color: #06738f !important
 }
@@ -146,4 +151,8 @@
     float: right;
     cursor: pointer;
     display: block;
+}
+
+legend{
+    margin-top: 2rem;
 }

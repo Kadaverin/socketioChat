@@ -20,7 +20,6 @@ var sessionMiddleware = expressSession({
     secret: "fsdf3@@!EWEd123dsde123dwf233323",
     resave: false,
     saveUninitialized: false,
-    unset: "destroy",
     store: new (require("connect-mongo")(expressSession))({
         url: config.dbUrl
     })
@@ -43,15 +42,7 @@ var io = require("socket.io")(server)
         // Wrap the express middleware
         sessionMiddleware(socket.request, {}, next);
     })
-    .on("connection", function(socket){
-        var userId = socket.request.session.passport.user;
-        console.log("Your User ID is", userId);
-        console.log(socket.request)
-        console.log(socket.request.isAuthenticated())
-        console.log(socket.request.user)
-        console.log(socket.request.logOut)
-        console.log( socket.request.session)
-    });
+
 
 app.use(cookieParser());
 
