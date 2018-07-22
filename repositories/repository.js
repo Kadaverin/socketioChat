@@ -1,7 +1,7 @@
 
 class Repository{
   getAll(callback) {
-    this.model.find().exec(callback);
+    this.model.find().lean().exec(callback);
   }
 
   getById(id, callback) {

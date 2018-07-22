@@ -12,63 +12,10 @@ html(lang='en')
         integrity='sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt',
         crossorigin='anonymous'
         )
-    //- script(src='//code.jquery.com/jquery-1.11.1.min.js')
     script(src='//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
     link#bootstrap-css(href='//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', rel='stylesheet')
-    //- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     link(rel='stylesheet', href='css/main.css')
   body
-    .container.auth-form-container
-      .row
-        .span12
-          #loginModal
-            h3.text-center Welcome to chat!
-            .well
-             .center-block(style = 'width: 400px;')
-              ul.nav.nav-tabs
-                li
-                  a(href='#login', data-toggle='tab') Login
-                li.active
-                  a(href='#register', data-toggle='tab') Register
-              #myTabContent.tab-content
-                #login.tab-pane.fade
-                  form#login-form
-                    fieldset
-                      #legend
-                        legend Login
-                      .form-group
-                        label.control-label(for='nickname') Nickname
-                        .controls
-                          input#nickname.form-control(type='text', name='nickname', placeholder='')
-                      .form-group
-                        label.control-label(for='password') Password
-                        .controls
-                          input#password.form-control(type='password', name='password', placeholder='')
-                      .form-group
-                        .controls
-                          button.btn.btn-success Login
-                #register.tab-pane.active.in
-                  #tab
-                   form#register-form
-                    fieldset
-                      #legend
-                        legend Registrer
-                      .form-group
-                        label.control-label(for='register_nickname') Nickname
-                        .controls
-                          input#register_nickname.form-control(type='text', name='nickname', placeholder='')
-                      .form-group
-                        label.control-label(for='password') Name
-                        .controls
-                          input#name.form-control(type='password', name='name', placeholder='')
-                      .form-group
-                        label.control-label(for='register_password') Password
-                        .controls
-                          input#register_password.form-control(type='password', name='password', placeholder='')
-                      .form-group
-                        .controls
-                           button.btn.btn-primary Register
-
     .container.chat-container
       .row
         .panel.panel-primary
@@ -81,6 +28,7 @@ html(lang='en')
           
           .col-md-9.chat-body-wrp
             ul#msg-list.chat.panel-body
+            #isTypingNotification.text-muted 
   
             .panel-footer
               form#send-msg-form
@@ -95,6 +43,6 @@ html(lang='en')
                       | Send
 
     script(src="/socket.io/socket.io.js")
-    //- script(type='text/javascript').
-    //-   var currentUser = !{JSON.stringify(currentUser)}
+    script(type='text/javascript').
+      var currentUser = !{JSON.stringify(currentUser)}
     script(src='js/chat.js')

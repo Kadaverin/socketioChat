@@ -5,11 +5,6 @@
     padding: 0;
 }
 
-.chat-container
-{
-    display: none;
-}
-
 .panel-heading{
     background-color: #06738f !important
 }
@@ -39,28 +34,39 @@
     /*border-bottom: 1px dotted #B3A9A9;*/
 }
 
-.chat-body{
+.chat-msg-content{
     /*background-color: #f3f5f9;*/
     background-color: #ebebeb;
     border: 1px solid white;
     border-radius: 8px;
     padding: 1rem;
 }
-.chat li.left .chat-body
+.chat li:nth-of-type(odd) .chat-msg-content
 {
-    margin-left: 50%;
+    margin-left: 40%;
 }
 
-.chat li.right .chat-body
+.chat li:nth-of-type(even) .chat-msg-content
 {
-    margin-right: 50%;
+    margin-right: 40%;
 }
 
 
-.chat li .chat-body p
+.chat .chat-msg p
 {
     margin-bottom: 0.5rem;
     /*color: #777777;*/
+}
+
+.chat .notification-msg{
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 13px;
+    color : #06738f;
+    margin: 2rem;
+    /*border-top : 1px solid grey*/
+    /*box-shadow: 10px 2px 1px*/
 }
 
 .header{
@@ -74,7 +80,7 @@
 
 .panel-body
 {
-    height: 600px;
+    height: 560px;
     overflow-y: scroll;
 }
 
@@ -89,6 +95,7 @@
 #msg-list .msg-for-current-user small{
     color: white;
 }
+
 
 ::-webkit-scrollbar-track
 {
@@ -111,13 +118,13 @@
 .users-list{
     list-style: none;
     padding: 0;
+    overflow-y: scroll;
+    height: 600px;
 }
 
 .users-list li{
-
     display: flex;
     align-items: center;
-    /*margin-top: 1rem;*/
 }
 .users-list li span.nick{
     color: lightseagreen;
@@ -125,13 +132,17 @@
 
 .users-list li:hover .content{
     background-color: #099c9e;;
-    cursor: pointer
+    cursor: pointer;
+    color : white;
 }
 
-.users-list li:hover span{
+.users-list li:hover .content span, 
+.users-list li:hover .content span.nick, 
+.users-list li:hover .content p#user-status-text{
     color: white;
 }
-.users-list li .content{
+
+li .content{
     border: 5px solid white;
     border-radius: 5px;
     font-size: 1.6rem;
@@ -142,9 +153,28 @@
     height: 100%;
 }
 
-.msg-for-current-user{
+.users-list i.fa-circle{
+    font-size: 9px;
+    margin-left : 5px;
+}
 
+.users-list .online i.fa-circle{
+    color : lightseagreen;
+}
+
+.users-list .offline i.fa-circle{
+    color : grey;
+}
+
+.msg-for-current-user{
    background-color: #f6f6f6;
+}
+
+.user-list li.select-user-item :hover .content,
+.user-list li.select-user-item :hover .content,
+{
+    background-color: #06738f;
+    color : white;
 }
 
 #logout-btn{
@@ -153,6 +183,14 @@
     display: block;
 }
 
-legend{
-    margin-top: 2rem;
+#isTypingNotification{
+    margin: 1rem;
+    min-height: 20px;
+    font-style: italic;
+}
+
+#user-status-text{
+  margin : 0;
+  font-size: 13px;
+  font-style: italic;
 }
